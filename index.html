@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Visitor Translator</title>
+    <script defer src="index.js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <p class="title">
+        Visitor Translator
+    </p>
+    <div class='container'>
+        <div class='input-output'>
+            <textarea rows="2" cols="25" placeholder="Enter text..." class="input"></textarea>
+            <div class='output-container'>
+                <p class='output'></p>
+            </div>
+        </div>
+        <button class='submit'>Translate</button>
+        <!-- Selector that shows the options for the origin language -->
+        <select name="Origin" class="orig">
+            <option value="en">English</option>
+            <option value="am">Amharic</option>
+            <option value="ar">Arabic</option>
+            <option value="be">Belarus</option>
+            <option value="bjs">Bajan</option>
+            <option value="bn">Bengali</option>
+            <option value="bo">Tibetan</option>
+            <option value="bs">Bosnian</option>
+            <option value="ca">Catalan</option>
+            <option value="cs">Czech</option>
+            <option value="cy">Welsh</option>
+            <option value="da">Danish</option>
+            <option value="de">German</option>
+            <option value="el">Greek</option>
+            <option value="es">Spanish</option>
+            <option value="et">Estonian</option>
+            <option value="fa">Persian</option>
+            <option value="fi">Finnish</option>
+            <option value="fr">French</option>
+            <option value="gu">Gujarati</option>
+            <option value="he">Hebrew</option>
+            <option value="hi">Hindi</option>
+            <option value="hr">Croatian</option>
+            <option value="hu">Hungarian</option>
+            <option value="id">Indonesian</option>
+            <option value="is">Icelandic</option>
+            <option value="it">Italian</option>
+            <option value="ja">Japanese</option>
+            <option value="kn">Kannada</option>
+            <option value="ko">Korean</option>
+            <option value="ku">Kurdish</option>
+            <option value="la">Latin</option>
+            <option value="lv">Latvian</option>
+            <option value="ms">Malay</option>
+            <option value="ne">Nepali</option>
+            <option value="nl">Dutch</option>
+            <option value="no">Norwegian</option>
+            <option value="ur">Urdu</option>
+            <option value="pa">Punjabi</option>
+            <option value="pl">Polish</option>
+            <option value="pt">Portugese</option>
+            <option value="ro">Romanian</option>
+            <option value="ru">Russian</option>
+            <option value="sk">Slovak</option>
+            <option value="so">Slovak</option>
+            <option value="sq">Albanian</option>
+            <option value="sr">Serbian</option>
+            <option value="sv">Swedish</option>
+            <option value="ta">Tamil</option>
+            <option value="th">Thai</option>
+            <option value="tl">Tagalog</option>
+            <option value="tr">Turkish</option>
+            <option value="uk">Ukrainian</option>
+            <option value="vi">Vietnamese</option>
+        </select>
+        <!-- Selector that shows the options for the ending language -->
+        <select name="Ending" class="end">
+            <option value="en">English</option>
+            <option value="am">Amharic</option>
+            <option value="ar">Arabic</option>
+            <option value="be">Belarus</option>
+            <option value="bjs">Bajan</option>
+            <option value="bn">Bengali</option>
+            <option value="bo">Tibetan</option>
+            <option value="bs">Bosnian</option>
+            <option value="ca">Catalan</option>
+            <option value="cs">Czech</option>
+            <option value="cy">Welsh</option>
+            <option value="da">Danish</option>
+            <option value="de">German</option>
+            <option value="el">Greek</option>
+            <option value="es">Spanish</option>
+            <option value="et">Estonian</option>
+            <option value="fa">Persian</option>
+            <option value="fi">Finnish</option>
+            <option value="fr">French</option>
+            <option value="gu">Gujarati</option>
+            <option value="he">Hebrew</option>
+            <option value="hi">Hindi</option>
+            <option value="hr">Croatian</option>
+            <option value="hu">Hungarian</option>
+            <option value="id">Indonesian</option>
+            <option value="is">Icelandic</option>
+            <option value="it">Italian</option>
+            <option value="ja">Japanese</option>
+            <option value="kn">Kannada</option>
+            <option value="ko">Korean</option>
+            <option value="ku">Kurdish</option>
+            <option value="la">Latin</option>
+            <option value="lv">Latvian</option>
+            <option value="ms">Malay</option>
+            <option value="ne">Nepali</option>
+            <option value="nl">Dutch</option>
+            <option value="no">Norwegian</option>
+            <option value="ur">Urdu</option>
+            <option value="pa">Punjabi</option>
+            <option value="pl">Polish</option>
+            <option value="pt">Portugese</option>
+            <option value="ro">Romanian</option>
+            <option value="ru">Russian</option>
+            <option value="sk">Slovak</option>
+            <option value="so">Slovak</option>
+            <option value="sq">Albanian</option>
+            <option value="sr">Serbian</option>
+            <option value="sv">Swedish</option>
+            <option value="ta">Tamil</option>
+            <option value="th">Thai</option>
+            <option value="tl">Tagalog</option>
+            <option value="tr">Turkish</option>
+            <option value="uk">Ukrainian</option>
+            <option value="vi">Vietnamese</option>
+        </select>
+    </div>
+    <!-- Container that shows the common words that would be needed while visiting a new place -->
+    <div class='common-words-container'>
+        <div class='hello-container'>
+            <p class="hello">Hello: &nbsp;</p>
+            <p class="hello-translation"></p>
+        </div>
+        <div class='how-are-you-container'>
+            <p class="hru">How are you?: &nbsp;</p>
+            <p class="hru-translation"></p>
+        </div>
+        <div class='excuse-me-container'>
+            <p class="excme">Excuse me: &nbsp;</p>
+            <p class="excme-translation"></p>
+        </div>
+        <div class='do-you-speak-container'>
+            <p class="dys">Do you speak... ?: &nbsp;</p>
+            <p class="dys-translation"></p>
+        </div>
+        <div class='im-looking-for-container'>
+            <p class="ilf">I'm looking for... : &nbsp;</p>
+            <p class="ilf-translation"></p>
+        </div>
+        <div class='thank-you-container'>
+            <p class="ty">Thank you: &nbsp;</p>
+            <p class="ty-translation"></p>
+        </div>
+        <div class='bye-container'>
+            <p class="bye">Bye: &nbsp;</p>
+            <p class="bye-translation"></p>
+        </div>
+        <div class='yes-no-container'>
+            <p class="yn">Yes/No: &nbsp;</p>
+            <p class="yn-translation"></p>
+        </div>
+    </div>
+    <p class="made-by">
+        Made by Ankit Mohapatra
+    </p>
+</body>
+
+</html>
